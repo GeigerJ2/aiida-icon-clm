@@ -160,7 +160,7 @@ def make_master_namelists(
         return pendulum.instance(dt).astimezone(utc)
 
     dt_restart = (
-        pendulum.period(to_utc(params.date), to_utc(next_date)).in_hours() + 1
+        pendulum.interval(to_utc(params.date), to_utc(next_date)).in_hours() + 1
     ) * 3600.0
 
     return template.render(
@@ -180,7 +180,7 @@ def make_master_namelists(
     #      "time_nml": {
     #          "ini_datetime_string": params.start_date.isoformat(),
     #          "dt_restart": str(
-    #              pendulum.period(
+    #              pendulum.interval(
     #                  pendulum.instance(params.date).naive(), next_date.naive()
     #              ).in_hours()
     #              * 3600
@@ -241,8 +241,8 @@ def make_model_namelists(
         gust_interval=params.gust_interval.in_seconds(),
         melt_interval=to_iso_8601_period(params.melt_interval),
         restart_write_mode=restart_write_mode,
-        sstart=pendulum.period(params.start_date, params.date).in_hours() * 3600,
-        snext=pendulum.period(
+        sstart=pendulum.interval(params.start_date, params.date).in_hours() * 3600,
+        snext=pendulum.interval(
             pendulum.instance(params.start_date).naive(), next_date
         ).in_hours()
         * 3600,
