@@ -3,7 +3,6 @@ import textwrap
 import pendulum
 from aiida import common, engine, orm
 from aiida.engine.processes import builder
-
 from aiida_c2sm.spice import conv2icon, data
 
 
@@ -23,7 +22,7 @@ def get_params(prep_node: orm.CalcJobNode) -> orm.JsonableData:
 
 
 def prepare(prep_node: orm.CalcJobNode) -> builder.ProcessBuilder:
-    code = orm.load_code("spice-conv-installed")
+    code = orm.load_code("spice-conv2icon-conv")
     builder = code.get_builder()
 
     builder.gcm_prepared = prep_node.outputs.gcm_prepared
@@ -32,11 +31,11 @@ def prepare(prep_node: orm.CalcJobNode) -> builder.ProcessBuilder:
     builder.ini_basedir = data.get_inibasedir()
     builder.metadata.description = "Test conv2icon job submission."
     builder.metadata.computer = code.computer
-    builder.metadata.options.account = "csstaff"
-    builder.metadata.options.max_wallclock_seconds = 1800
-    builder.metadata.options.queue_name = "normal"
-    builder.metadata.options.custom_scheduler_commands = "#SBATCH -C gpu"
-    builder.metadata.options.max_memory_kb = int(64e6)
+    # builder.metadata.options.account = "csstaff"
+    # builder.metadata.options.max_wallclock_seconds = 1800
+    # builder.metadata.options.queue_name = "normal"
+    # builder.metadata.options.custom_scheduler_commands = "#SBATCH -C gpu"
+    # builder.metadata.options.max_memory_kb = int(64e6)
 
     return builder
 

@@ -44,14 +44,14 @@ class PreparationWorkflow(engine.WorkChain):
             nodes={
                 "gcm_path": orm.Str(str(self.ctx.gcm_fullpath)),
             },
-            metadata={
-                "options": {
-                    "computer": orm.load_computer(uuid=self.inputs.computer_uuid.value),
-                    "account": "csstaff",
-                    "max_wallclock_seconds": 600,
-                    "queue_name": "normal",
-                    "custom_scheduler_commands": "$SBATCH -C gpu",
-                    "max_memory_kb": int(64e6),
-                }
-            },
+            # metadata={
+            #     "options": {
+            #         "computer": orm.load_computer(uuid=self.inputs.computer_uuid.value),
+            #         "account": "csstaff",
+            #         "max_wallclock_seconds": 600,
+            #         "queue_name": "normal",
+            #         "custom_scheduler_commands": "$SBATCH -C gpu",
+            #         "max_memory_kb": int(64e6),
+            #     }
+            # },
         )

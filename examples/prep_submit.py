@@ -2,7 +2,6 @@ import pathlib
 
 import pendulum
 from aiida import common, engine, orm
-
 from aiida_c2sm import spice
 
 
@@ -11,7 +10,7 @@ def get_params() -> orm.JsonableData:
         params = orm.load_node(label="spice-prep-example-params")
         return params
     except common.NotExistent:
-        src_dir = pathlib.Path("/scratch/snx3000/mjaehn/sandbox_workflow/spice/src")
+        src_dir = pathlib.Path("/store/c2sm/c2sme/ICON-CLM/spice-sandbox/src")
         return orm.JsonableData(
             spice.data.PrepParams(
                 date=pendulum.datetime(year=1979, month=1, day=1, tz="utc"),
@@ -26,8 +25,8 @@ def get_params() -> orm.JsonableData:
         ).store()
 
 
-computer = orm.load_computer("Daint")
-code = orm.load_code("spice-prep-installed")
+computer = orm.load_computer("daint-gpu")
+code = orm.load_code("spice-conv2icon-prep")
 params = get_params()
 gcm_data = spice.data.get_gcm_data()
 
@@ -36,7 +35,7 @@ builder.gcm_data = gcm_data
 builder.parameters = params
 builder.metadata.description = "Test prep job submission."
 builder.metadata.computer = computer
-builder.metadata.options.account = "csstaff"
+# builder.metadata.options.account = "csstaff"
 builder.metadata.options.max_wallclock_seconds = 1800
 builder.metadata.options.queue_name = "normal"
 builder.metadata.options.custom_scheduler_commands = "#SBATCH -C gpu"

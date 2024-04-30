@@ -11,7 +11,7 @@ There is [an example for running the workflow](examples/gcm2icon_submit.ipynb) f
 - A working installation and profile of [AiiDA](https://aiida.readthedocs.io/projects/aiida-core/en/latest/intro/get_started.html).
 - This plugin installed.
 - IPython installed.
-- A [computer](https://aiida.readthedocs.io/projects/aiida-core/en/latest/howto/run_codes.html#how-to-run-codes) (SLURM cluster to which you can authenticate through AiiDA). The example assumes it to be named "Daint", but this can be changed easily.
+- A [computer](https://aiida.readthedocs.io/projects/aiida-core/en/latest/howto/run_codes.html#how-to-run-codes) (SLURM cluster to which you can authenticate through AiiDA). The example assumes it to be named "daint-gpu", but this can be changed easily.
 - A SPICE GCM2Icon workflow set up at a specific path on the computer
 - Certain data files at a specific path on the computer
 - All the paths can be changed without touching the source code, but this might not be obvious how to do.

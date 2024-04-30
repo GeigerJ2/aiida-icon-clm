@@ -16,12 +16,12 @@ _GCM_DATA_LABEL = "gcm_data"
 _GCM_DATA_PATH = "/store/c2sm/c2sme/reanalyses_dkrz/ERAInterim"
 
 _INIDATA_LABEL = "inidata"
-_INIDATA_PATH = (
-    "/scratch/snx3000/mjaehn/sandbox_workflow/spice/chain/work/sp001/inidata"
-)
+# _INIDATA_PATH = "/store/c2sm/c2sme/ICON-CLM/spice-sandbox/spice/chain/work/sp001/inidata"
+_INIDATA_PATH = "/store/c2sm/c2sme/ICON-CLM/spice-sandbox/chain/work/sp001/inidata"
 
 _INIBASEDIR_LABEL = "ini_basedir"
-_INIBASEDIR_PATH = "/scratch/snx3000/mjaehn/sandbox_workflow/spice/data/rcm/"
+# _INIBASEDIR_PATH = "/store/c2sm/c2sme/ICON-CLM/spice-sandbox/spice/data/rcm/"
+_INIBASEDIR_PATH = "/store/c2sm/c2sme/ICON-CLM/spice-sandbox/data/rcm"
 
 
 __all__ = ["get_gcm_data", "get_inidata", "get_inibasedir"]
@@ -94,7 +94,7 @@ def __gcm_data_initializer() -> orm.RemoteData:
         label=_GCM_DATA_LABEL,
         remote_path=_GCM_DATA_PATH,
         description="Initial boundary data.",
-        computer=orm.load_computer("Daint"),
+        computer=orm.load_computer("daint-gpu"),
     )
 
 
@@ -103,7 +103,7 @@ def __inidata_initializer() -> orm.RemoteData:
         label=_INIDATA_LABEL,
         remote_path=_INIDATA_PATH,
         description="Some initial data.",
-        computer=orm.load_computer("Daint"),
+        computer=orm.load_computer("daint-gpu"),
     )
 
 
@@ -112,5 +112,5 @@ def __inibasedir_initializer() -> orm.RemoteData:
         label=_INIBASEDIR_LABEL,
         remote_path=_INIBASEDIR_PATH,
         description="Some initial data.",
-        computer=orm.load_computer("Daint"),
+        computer=orm.load_computer("daint-gpu"),
     )

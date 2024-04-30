@@ -24,6 +24,7 @@ class Conv2Icon(engine.CalcJob):
         )
         spec.input("ini_basedir", valid_type=orm.RemoteData)
         spec.input("parameters", valid_type=orm.JsonableData, help="Input parameters.")
+        # ! It breaks here, no "converted" -> Script fails or?
         spec.output("converted")
         spec.output("boundary_data")
         options = spec.inputs["metadata"]["options"]

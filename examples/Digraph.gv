@@ -4,17 +4,17 @@ digraph {
 State: finished
 Exit Code: 300" color=red fillcolor="#de707fff" penwidth=6 shape=rectangle style=filled]
 	N1964 [label="RemoteData (1964)
-@Daint-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
+@daint-gpu-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N1965 [label="RemoteData (1965)
-@Daint-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
+@daint-gpu-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N1978 [label="InstalledCode (1978)
 Pre-Installed spice prep script." fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N2047 [label="InstalledCode (2047)
 SPICE conv2icon script" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N2079 [label="RemoteData (2079)
-@Daint-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
+@daint-gpu-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N2084 [label="RemoteData (2084)
-@Daint-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
+@daint-gpu-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N2514 [label="InstalledCode (2514)
 SPICE ICON binary" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N3628 [label="Dict (3628)" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
@@ -32,13 +32,13 @@ Exit Code: 11" fillcolor="#e38851ff" penwidth=0 shape=rectangle style=filled]
 State: finished
 Exit Code: 0" fillcolor="#de707fff" penwidth=0 shape=rectangle style=filled]
 	N3639 [label="RemoteData (3639)
-@Daint-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
+@daint-gpu-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N3640 [label="JsonableData (3640)" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N3641 [label="Conv2Icon (3641)
 State: finished
 Exit Code: 0" fillcolor="#de707fff" penwidth=0 shape=rectangle style=filled]
 	N3644 [label="RemoteData (3644)
-@Daint-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
+@daint-gpu-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N3646 [label="Dict (3646)" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N3647 [label="Str (3647)
 europe044/europe044_DOM01.nc" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
@@ -86,15 +86,15 @@ Exit Code: 0" fillcolor="#de707fff" penwidth=0 shape=rectangle style=filled]
 	N3666 [label="Str (3666)
 multifile_restart_atm_19790201T000000Z.mfr" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N3667 [label="RemoteData (3667)
-@Daint" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
+@daint-gpu" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N3669 [label="RemoteData (3669)
-@Daint-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
+@daint-gpu-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N3670 [label="JsonableData (3670)" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N3671 [label="Conv2Icon (3671)
 State: finished
 Exit Code: 0" fillcolor="#de707fff" penwidth=0 shape=rectangle style=filled]
 	N3674 [label="RemoteData (3674)
-@Daint-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
+@daint-gpu-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N3676 [label="Dict (3676)" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N3677 [label="Str (3677)
 europe044/europe044_DOM01.nc" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
@@ -249,7 +249,7 @@ caf1979010100_ini.nc" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=fille
 	N3678 -> N3682 [label=parent_grid_relpath color="#000000" style=dashed]
 	N3631 -> N3634 [label=computer_options color="#000000" style=dashed]
 	N3691 [label="RemoteData (3691)
-@Daint" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
+@daint-gpu" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N3692 [label="FolderData (3692)" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N3690 -> N3692 [label=retrieved color="#000000" style=solid]
 	N3690 -> N3691 [label=remote_folder color="#000000" style=solid]

@@ -4,13 +4,12 @@ import pendulum
 import tabulate
 from aiida import common, engine, orm
 from aiida.engine.processes import builder
-
 from aiida_c2sm.spice import data, icon_wc
 
 
 def get_params(conv_node: orm.CalcJobNode) -> orm.JsonableData:
     try:
-        params = orm.load_node(label="spice-icon-example-params")
+        params = orm.load_node(label="icon-gpu-example-params")
         return params
     except common.NotExistent:
         utc = pendulum.timezone("Utc")
@@ -20,10 +19,10 @@ def get_params(conv_node: orm.CalcJobNode) -> orm.JsonableData:
                 stop_date=pendulum.datetime(year=1979, month=3, day=1, tz=utc),
                 date=pendulum.instance(conv_node.inputs.parameters.obj.date, tz=utc),
             ),
-            label="spice-icon-example-params",
+            label="icon-gpu-example-params",
         ).store()
 
-
+# Path checked
 def get_ecraddir() -> orm.RemoteData:
     try:
         params = orm.load_node(label="spice-ecraddir")
@@ -31,13 +30,14 @@ def get_ecraddir() -> orm.RemoteData:
     except common.NotExistent:
         return orm.RemoteData(
             label="spice-ecraddir",
-            computer=orm.load_computer("Daint"),
-            remote_path="/scratch/snx3000/mjaehn/sandbox_workflow/spice/icon-nwp-gpu/externals/ecrad/data",
+            computer=orm.load_computer("daint-gpu"),
+            # remote_path="/store/c2sm/c2sme/ICON-CLM/spice-sandbox/spice/icon-nwp-gpu/externals/ecrad/data",
+            remote_path="/store/c2sm/c2sme/ICON-CLM/spice-sandbox/src/icon-nwp-gpu/externals/ecrad"
         ).store()
 
 
 def prepare(conv_node: orm.CalcJobNode) -> builder.ProcessBuilder:
-    code = orm.load_code("spice-icon")
+    code = orm.load_code("icon-gpu")
     builder = icon_wc.IconWorkChain.get_builder()
 
     builder.code = code
@@ -55,17 +55,17 @@ def prepare(conv_node: orm.CalcJobNode) -> builder.ProcessBuilder:
     builder.ghg_file_relpath = "greenhouse_gases/bc_greenhouse_rcp45_1765-2500.nc"
     builder.ecraddir = get_ecraddir()
     #  builder.metadata = {"description": "Test icon job submission."}
-    builder.options = {
-        "account": "csstaff",
-        "max_wallclock_seconds": 3600,
-        "queue_name": "normal",
-        "custom_scheduler_commands": "#SBATCH -C gpu",
-        "max_memory_kb": int(64e6),
+    # builder.options = {
+    #     "account": "csstaff",
+    #     "max_wallclock_seconds": 3600,
+    #     "queue_name": "normal",
+    #     "custom_scheduler_commands": "#SBATCH -C gpu",
+    #     "max_memory_kb": int(64e6),
         #  "environment_variables": {
         #      "CURRENT_DATE": builder.parameters.obj.date.strftime("%Y%m%d%H"),
         #      "EXPID": builder.expid,
         #  },
-    }
+    # }
 
     return builder
 
