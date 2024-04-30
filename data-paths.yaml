@@ -1,0 +1,12 @@
+inidata_label: inidata
+inidata_path: /store/c2sm/c2sme/ICON-CLM/spice-sandbox/chain/work/sp001/inidata
+
+inibasedir_label: ini_basedir
+inibasedir_path: /store/c2sm/c2sme/ICON-CLM/spice-sandbox/data/rcm
+
+gcm_data_label: gcm_data
+gcm_data_path: /store/c2sm/c2sme/reanalyses_dkrz/ERAInterim
+
+group_label: spice-exp
+
+computer_label: daint-gpu

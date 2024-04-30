@@ -9,7 +9,7 @@ from aiida.engine.processes.calcjobs import calcjob
 from aiida.parsers import parser
 
 
-class Icon(engine.CalcJob):
+class IconCalculation(engine.CalcJob):
     """AiiDA calculation to run ICON."""
 
     @classmethod

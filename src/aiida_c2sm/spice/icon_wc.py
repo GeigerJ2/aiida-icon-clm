@@ -26,7 +26,7 @@ class IconWorkChain(engine.WorkChain):
     def define(cls: type[Self], spec: workchain.WorkChainSpec) -> None:
         super().define(spec)
         spec.expose_inputs(
-            spice.icon.Icon,
+            spice.icon.IconCalculation,
             exclude=[
                 "master_namelist",
                 "model_namelist",
@@ -41,7 +41,7 @@ class IconWorkChain(engine.WorkChain):
             serializer=orm.to_aiida_type,
             help="Computer options.",
         )
-        spec.expose_outputs(spice.icon.Icon)
+        spec.expose_outputs(spice.icon.IconCalculation)
 
         spec.outline(cls.prepare_namelists, cls.launch_icon, cls.finalize)
 
@@ -109,12 +109,12 @@ class IconWorkChain(engine.WorkChain):
                 master_namelist=self.ctx.master_namelist,
                 model_namelist=self.ctx.model_namelist,
                 ifs2icon_filename=self.ctx.ifs2icon_filename,
-                **self.exposed_inputs(spice.icon.Icon),
+                **self.exposed_inputs(spice.icon.IconCalculation),
             ),
         )
 
     def finalize(self) -> None:
-        self.out_many(self.exposed_outputs(self.ctx.icon, spice.icon.Icon))
+        self.out_many(self.exposed_outputs(self.ctx.icon, spice.icon.IconCalculation))
 
 
 @engine.calcfunction

@@ -10,7 +10,7 @@ def get_script_path() -> pathlib.Path:
     return pathlib.Path(__file__).parent / "scripts" / "prep"
 
 
-class GCM2IconPrep(engine.CalcJob):
+class GCM2IconPrepCalculation(engine.CalcJob):
     """AiiDA calculation to decompress and convert gcm data for ICON."""
 
     @classmethod

@@ -10,7 +10,7 @@ from aiida.engine.processes.calcjobs import calcjob
 from aiida.parsers import parser
 
 
-class Conv2Icon(engine.CalcJob):
+class Conv2IconCalculation(engine.CalcJob):
     """AiiDA calculation to convert boundary data to ICON."""
 
     @classmethod
@@ -36,7 +36,7 @@ class Conv2Icon(engine.CalcJob):
         spec.exit_code(
             300,
             "ERROR_MISSING_OUTPUT_FILES",
-            message="Conv2Icon prep did not create all expected output files!",
+            message="Conv2IconCalculation prep did not create all expected output files!",
         )
 
     def prepare_for_submission(self, folder: folders.Folder) -> datastructures.CalcInfo:

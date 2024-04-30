@@ -24,17 +24,17 @@ SPICE ICON binary" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N3632 [label="JsonableData (3632)" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N3633 [label="Str (3633)
 hot-clam" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
-	N3634 [label="Gcm2Icon (3634)
+	N3634 [label="GCM2IconWorkChain (3634)
 State: finished
 Exit Code: 11" fillcolor="#e38851ff" penwidth=0 shape=rectangle style=filled]
 	N3635 [label="JsonableData (3635)" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
-	N3636 [label="GCM2IconPrep (3636)
+	N3636 [label="GCM2IconPrepCalcJob (3636)
 State: finished
 Exit Code: 0" fillcolor="#de707fff" penwidth=0 shape=rectangle style=filled]
 	N3639 [label="RemoteData (3639)
 @daint-gpu-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N3640 [label="JsonableData (3640)" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
-	N3641 [label="Conv2Icon (3641)
+	N3641 [label="Conv2IconCalculation (3641)
 State: finished
 Exit Code: 0" fillcolor="#de707fff" penwidth=0 shape=rectangle style=filled]
 	N3644 [label="RemoteData (3644)
@@ -53,7 +53,7 @@ greenhouse_gases/bc_greenhouse_rcp45_1765-2500.nc" fillcolor="#8cd499ff" penwidt
 State: finished
 Exit Code: 0" fillcolor="#e38851ff" penwidth=0 shape=rectangle style=filled]
 	N3653 [label="JsonableData (3653)" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
-	N3654 [label="GCM2IconPrep (3654)
+	N3654 [label="GCM2IconPrepCalcJob (3654)
 State: finished
 Exit Code: 0" fillcolor="#de707fff" penwidth=0 shape=rectangle style=filled]
 	N3655 [label="Str (3655)
@@ -90,7 +90,7 @@ multifile_restart_atm_19790201T000000Z.mfr" fillcolor="#8cd499ff" penwidth=0 sha
 	N3669 [label="RemoteData (3669)
 @daint-gpu-mpirun" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
 	N3670 [label="JsonableData (3670)" fillcolor="#8cd499ff" penwidth=0 shape=ellipse style=filled]
-	N3671 [label="Conv2Icon (3671)
+	N3671 [label="Conv2IconCalculation (3671)
 State: finished
 Exit Code: 0" fillcolor="#de707fff" penwidth=0 shape=rectangle style=filled]
 	N3674 [label="RemoteData (3674)

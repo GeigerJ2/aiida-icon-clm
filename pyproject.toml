@@ -64,12 +64,12 @@ testing = [
 "c2sm.bakery_cycle" = "aiida_c2sm.bakery:BakeryCycle"
 "c2sm.spice_icon" = "aiida_c2sm.spice.icon_wc:IconWorkChain"
 "c2sm.spice_prepare" = "aiida_c2sm.spice.prepare.prep_workflow:PreparationWorkflow"
-"c2sm.gcm2icon" = "aiida_c2sm.spice.gcm2icon.workflow:Gcm2Icon"
+"c2sm.gcm2icon" = "aiida_c2sm.spice.gcm2icon.workflow:GCM2IconWorkChain"
 
 [project.entry-points."aiida.calculations"]
-"c2sm.spice_prep" = "aiida_c2sm.spice.prep:GCM2IconPrep"
-"c2sm.spice_conv" = "aiida_c2sm.spice.conv2icon:Conv2Icon"
-"c2sm.spice_raw_icon" = "aiida_c2sm.spice.icon:Icon"
+"c2sm.spice_prep" = "aiida_c2sm.spice.prep:GCM2IconPrepCalculation"
+"c2sm.spice_conv" = "aiida_c2sm.spice.conv2icon:Conv2IconCalculation"
+"c2sm.spice_raw_icon" = "aiida_c2sm.spice.icon:IconCalculation"
 
 [project.entry-points."aiida.parsers"]
 "c2sm.spice_prep" = "aiida_c2sm.spice.prep:PrepParser"

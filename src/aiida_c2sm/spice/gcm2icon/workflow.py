@@ -7,7 +7,7 @@ from typing_extensions import Self
 from aiida_c2sm import spice
 
 
-class Gcm2Icon(engine.WorkChain):
+class GCM2IconWorkChain(engine.WorkChain):
     """SPICE gcm2icon workflow."""
 
     @classmethod
@@ -39,11 +39,11 @@ class Gcm2Icon(engine.WorkChain):
             serializer=orm.to_aiida_type,
         )
         spec.expose_inputs(
-            spice.prep.GCM2IconPrep, exclude=["parameters", "code", "metadata"]
+            spice.prep.GCM2IconPrepCalculation, exclude=["parameters", "code", "metadata"]
         )
-        spec.expose_inputs(spice.prep.GCM2IconPrep, include=["code"], namespace="prep")
+        spec.expose_inputs(spice.prep.GCM2IconPrepCalculation, include=["code"], namespace="prep")
         spec.expose_inputs(
-            spice.conv2icon.Conv2Icon, include=["code"], namespace="conv"
+            spice.conv2icon.Conv2IconCalculation, include=["code"], namespace="conv"
         )
         spec.expose_inputs(
             spice.icon_wc.IconWorkChain,
@@ -124,7 +124,7 @@ class Gcm2Icon(engine.WorkChain):
         builder.metadata.description = " ".join(
             (
                 f"Preparation job for experiment {self.ctx.expid},",
-                "launched from Gcm2Icon workflow.",
+                "launched from GCM2IconWorkChain workflow.",
             )
         )
         builder.metadata.computer = builder.code.computer
@@ -151,7 +151,7 @@ class Gcm2Icon(engine.WorkChain):
 
     def conv(self: Self) -> None:
         self.report(
-            "Starting Conv2Icon run for date {current}.".format(
+            "Starting Conv2IconCalculation run for date {current}.".format(
                 current=self.ctx.current_date.to_datetime_string()
             )
         )
@@ -162,7 +162,7 @@ class Gcm2Icon(engine.WorkChain):
         builder.metadata.description = " ".join(
             (
                 f"Conversion job for experiment {self.ctx.expid},",
-                "launched from Gcm2Icon workflow.",
+                "launched from GCM2IconWorkChain workflow.",
             )
         )
         builder.metadata.computer = builder.code.computer
@@ -210,7 +210,7 @@ class Gcm2Icon(engine.WorkChain):
         builder.metadata.description = " ".join(
             (
                 f"Icon run for experiment {self.ctx.expid}, ",
-                "launched from Gcm2Icon workflow.",
+                "launched from GCM2IconWorkChain workflow.",
             )
         )
         builder.code = self.inputs.icon.code
